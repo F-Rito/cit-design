@@ -1,0 +1,352 @@
+html {
+    font-size: 62.5%;
+    // background-color: #000;
+    color: #000;
+}
+
+body {
+    font-family: "Hiragino Kaku Gothic";
+    cursor: none;
+}
+
+a {
+    cursor: none;
+}
+
+.content-width {
+    margin: 240px 8%;
+}
+
+#top, #wrap {
+    height: 16050px;
+}
+
+/* ------------- スクロールフェードインDown用 ------------- */
+.fadeInDown {
+    -webkit-animation-fill-mode:both;
+    -ms-animation-fill-mode:both;
+    animation-fill-mode:both;
+    -webkit-animation-duration:1s;
+    -ms-animation-duration:1s;
+    animation-duration:1s;
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    visibility: visible !important;
+   }
+   @-webkit-keyframes fadeInDown {
+    0% { opacity: 0; -webkit-transform: translateY(20px); }
+    100% { opacity: 1; -webkit-transform: translateY(0); }
+   }
+   @keyframes fadeInDown {
+    0% { opacity: 0; -webkit-transform: translateY(20px); -ms-transform: translateY(20px); transform: translateY(20px); }
+    100% { opacity: 1; -webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0); }
+}
+   /* ------------- スクロールフェードインDown用 END ------------- */
+
+
+//    マウスストーカー
+.js-cursor__main {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: #333;
+    // border: solid .5px #fff;
+    border-radius: 50%;
+    z-index: 1001;
+    opacity: 0;
+    transition: opacity .2s;
+    .is-moved & {
+      opacity: 1;
+    }
+    .is-outside & {
+      opacity: 0;
+    }
+  }
+  
+  .js-cursor__option {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ccc;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity .1s .1s,  .1s;
+    .is-moved & {
+      opacity: 0.5;
+    }
+    .is-outside & {
+      opacity: 0;
+    }
+    .is-hover & {
+      background: none;
+      border: solid .5px #555;
+    }
+  }
+
+// ページトップボタン
+#pageTop {
+    position: fixed;
+    bottom: 15px;
+    right: 90px;
+    display: block;
+    z-index: 999;
+    transition: .5s;
+  }
+  #pageTop:hover {
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+// header
+.header {
+    height: 150px;
+    margin: 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__logo img {
+        width: 300px;
+        transition: .3s;
+    }
+    &__logo img:hover {
+        opacity: .8;
+        transition: .3s;
+    }
+    &-globalnabv__list {
+        display: flex;
+        & li a {
+            font-size: 1.6rem;
+            margin-left: 24px;
+            transition: .3s;
+        }
+        & li a:hover{
+            opacity: .6;
+            transition: .3s;
+        }
+    }
+}
+
+// top-sec
+.top {
+    height: 700px;
+    position: relative;
+    margin: 20px 0 40px 8%;
+    &-content {
+        position: absolute;
+        right: 330px;
+        padding-top: 70px;
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+    }
+    &-content__heading {
+        font-size: 7rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        line-height: 100px;
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        &-space {
+            margin-top: 160px;
+        }
+    }
+    &-content__toc {
+        margin: 80px 100px 0 0;
+        & li {
+            list-style: inside;
+            padding: 0 13px;
+        }
+        & li a {
+            font-size: 1.8rem;
+            opacity: .6;
+            transition: .6s ease-out;
+            &:hover {
+                font-size: 2.6rem;
+                font-weight: bold;
+                opacity: 1;
+            }
+        }
+    }
+    &__scrolldown {
+        padding-top: 60px;
+        position: absolute;
+        bottom: -40px;
+        left: 750px;
+        z-index: 2;
+        display: inline-block;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        text-decoration: none;
+    }
+    &__scrolldown span {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 35px;
+        height: 35px;
+        margin-left: -12px;
+        border-left: 1px solid #333;
+        border-bottom: 1px solid #333;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        animation: sdb 2s infinite;
+        animation-delay: 1s;
+        box-sizing: border-box;
+    }
+    @keyframes sdb {
+        0% {
+          transform: rotate(-45deg) translate(0, 0);
+        }
+        50% {
+          transform: rotate(-45deg) translate(-10px, 10px);
+        }
+        100% {
+          transform: rotate(-45deg) translate(0, 0);
+        }
+    }
+}
+
+// about-sec
+.about {
+    text-align: center;
+    & p {
+        margin: 80px 0;
+        color: #555;
+        font-family: "Yu Mincho", "YuMincho";
+        font-size: 2.7rem;
+        letter-spacing: 3px;
+    }
+    &__underline {
+        background:linear-gradient(transparent 70%, #f4af38 0%);
+    }
+}
+
+
+// contents-sec
+.contents-sec {
+    margin: 300px 16% 0 16%;
+}
+.contents-meigen-left {
+    margin-top: 270px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row-reverse;
+    &__text {
+        color: #555;
+        font-size: 2rem;
+        font-family: "Yu Mincho", "YuMincho";
+        letter-spacing: 2px;
+        line-height: 33px;
+        opacity: 0;
+        transition: .5s ease-in;
+    }
+    &__img {
+        width: 300px;
+        transition: .5s ease-out;
+        box-shadow: rgba(0, 0, 0, 0.15) 12px 12px 3px;
+        &:hover {
+            box-shadow: none;
+            position: relative;
+            transform: translate3d(12px, 12px, 0);
+        }
+    }
+    &__img:hover +.contents-meigen-left__text {
+        opacity: 1;
+    }
+}
+.contents-meigen-migi {
+    margin-top: 270px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__text {
+        color: #555;
+        font-size: 2rem;
+        font-family: "Yu Mincho", "YuMincho";
+        letter-spacing: 2px;
+        line-height: 33px;
+        opacity: 0;
+        transition: .5s ease-in;
+    }
+    &__img {
+        width: 300px;
+        transition: .5s ease-out;
+        box-shadow: rgba(0, 0, 0, 0.15) 12px 12px 3px;
+        &:hover {
+            box-shadow: none;
+            position: relative;
+            transform: translate3d(12px, 12px, 0);
+        }
+    }
+    &__img:hover + .contents-meigen-migi__text {
+        opacity: 1;
+    }
+}
+
+// ぼかし
+.meigen {
+    opacity: 0;
+    -moz-transition: -moz-transform 0.5s linear;
+    -webkit-transition: -webkit-transform 0.5s linear;
+    -o-transition: -o-transform 0.5s linear;
+    -ms-transition: -ms-transform 0.5s linear;
+    transition: transform 0.5s linear;
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  .img-blur {
+    -webkit-animation-name: imageBlur;
+    animation-name: imageBlur;
+    opacity: 1;
+    transition: .8s;
+  }
+  @-webkit-keyframes imageBlur {
+    from {
+      opacity: 0;
+      -webkit-filter: blur(15px);
+      -moz-filter: blur(15px);
+      -ms-filter: blur(15px);
+      -o-filter: blur(15px);
+      filter: blur(15px);
+    }
+    to {
+      opacity: 1;
+      -webkit-filter: blur(0px);
+      -moz-filter: blur(0px);
+      -ms-filter: blur(0px);
+      -o-filter: blur(0px);
+      filter: blur(0px);
+    }
+  }
+  @keyframes imageBlur {
+    from {
+      opacity: 0;
+      -webkit-filter: blur(15px);
+      -moz-filter: blur(15px);
+      -ms-filter: blur(15px);
+      -o-filter: blur(15px);
+      filter: blur(15px);
+    }
+    to {
+        opacity: 1;
+      -webkit-filter: blur(0px);
+      -moz-filter: blur(0px);
+      -ms-filter: blur(0px);
+      -o-filter: blur(0px);
+      filter: blur(0px);
+    }
+}
+
+.footer {
+    margin: 0 8%;
+}
